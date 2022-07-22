@@ -6,35 +6,45 @@ import api from './services/api';
 
 function App() {
   
-  const startCEP = '90880380';
-  const [cep, setCep] = useState(startCEP);
+  const startCEP = (e: any) => e.target.value;
+  const [cep, setCep] = useState('');
   const [cepConsulta, setCepConsulta] = useState<CEP[]>([]);
 
-  //  useEffect(() => {
-  //    api
-  //     .get(`/${cep}/json`)
-  //     .then((resp) => {
-  //       setCepConsulta(resp.data);
-  //     });
-  //  })
+  // useEffect(() => {
+  //   api
+  //    .get(`/${cep}/json`)
+  //    .then((resp) => {
+  //      setCepConsulta(resp.data);
+  //    });
+  // })
 
-  
-    function getCEP(){
-    //  axios({
-    //    method: "get",
-    //    url: `/${cepConsulta}/json`,
-    //    baseURL: `${BASE_URL}`
-    api
-      .get(`/${cepConsulta}/json`)
+
+  function getCEP(){
+    axios({
+        method: "get",
+        baseURL: `${BASE_URL}`,
+        url: `/${cepConsulta}/json/`,
+    })
       .then(resp => {
-          setCepConsulta(resp.data.content)
+          console.log(resp.data.content)
         });
     };
+
+    const checkCEP = (e: any) => {
+      const cep = e.target.value;
+      fetch(`${BASE_URL}/${cep}/json/`)
+        .then(resp => resp.json())
+        .then(data => {
+          console.log(data);
+        })
+    }
+
+    
 
   return (
     <>
       <form action="">
-        <input placeholder='Digite o CEP' onChange={e => setCep(e.target.value)} type="text" />
+        <input placeholder='Digite o CEP' onChange={checkCEP} onBlur={getCEP} type="text" />
         <button onClick={getCEP}>Buscar CEP</button>
       </form>
       <div>
