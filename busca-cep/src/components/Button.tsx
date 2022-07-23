@@ -1,6 +1,6 @@
 function Button({ checkCEP }:{checkCEP: Function}){
     return(
-        <button onClick={() => checkCEP()}>Buscar CEP</button>
+        <button className="btnCheck" onClick={() => checkCEP()}>Buscar CEP</button>
     )
 }
 

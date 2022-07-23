@@ -32,23 +32,23 @@ const Search = () => {
     return (
         <div className='container'>
             <div className='form-container'>
-                <form onSubmit={e => e.preventDefault()} action="">
-                    <input placeholder='Digite o CEP' onBlur={getCEP} type="text" />
+                <form id='form-cep' onSubmit={e => e.preventDefault()} action="">
+                    <input id='input-cep' placeholder='Digite o CEP' onBlur={getCEP} type="text" />
                     <Button checkCEP={checkCEP} />
                 </form>
             </div>
             <div className='cep-list'>
                 <ul key={cepConsulta?.cep}>
-                    <li>CEP: {cepConsulta?.cep}</li>
-                    <li>Logradouro: {cepConsulta?.logradouro}</li>
-                    <li>Complemento: {cepConsulta?.complemento}</li>
-                    <li>Bairro: {cepConsulta?.bairro}</li>
-                    <li>Localidade: {cepConsulta?.localidade}</li>
-                    <li>UF: {cepConsulta?.uf}</li>
-                    <li>IBGE: {cepConsulta?.ibge}</li>
-                    <li>GIA: {cepConsulta?.gia}</li>
-                    <li>DDD: {cepConsulta?.ddd}</li>
-                    <li>SIAFI: {cepConsulta?.siafi}</li>
+                    <li><span>CEP:</span> {cepConsulta?.cep}</li>
+                    <li><span>Logradouro:</span> {cepConsulta?.logradouro}</li>
+                    <li><span>Complemento:</span> {cepConsulta?.complemento}</li>
+                    <li><span>Bairro:</span> {cepConsulta?.bairro}</li>
+                    <li><span>Localidade:</span> {cepConsulta?.localidade}</li>
+                    <li><span>UF:</span> {cepConsulta?.uf}</li>
+                    <li><span>IBGE:</span> {cepConsulta?.ibge}</li>
+                    <li><span>GIA:</span> {cepConsulta?.gia}</li>
+                    <li><span>DDD:</span> {cepConsulta?.ddd}</li>
+                    <li><span>SIAFI:</span> {cepConsulta?.siafi}</li>
                 </ul>
             </div>
         </div>
