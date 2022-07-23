@@ -2,70 +2,58 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from './utils/request';
 import { CEP } from './models/CEP';
-import api from './services/api';
+import './App.css'
 
 function App() {
-  
-  const startCEP = (e: any) => e.target.value;
+
   const [cep, setCep] = useState('');
-  const [cepConsulta, setCepConsulta] = useState<CEP[]>([]);
+  const [cepConsulta, setCepConsulta] = useState<CEP>();
 
-  // useEffect(() => {
-  //   api
-  //    .get(`/${cep}/json`)
-  //    .then((resp) => {
-  //      setCepConsulta(resp.data);
-  //    });
-  // })
+  useEffect(() => {
+  }, [cepConsulta])
 
 
-  function getCEP(){
+  const getCEP = (e: any) => {
+    setCep(e.target.value);
+  };
+
+  const checkCEP = () => {
     axios({
-        method: "get",
-        baseURL: `${BASE_URL}`,
-        url: `/${cepConsulta}/json/`,
+      method: "get",
+      baseURL: `${BASE_URL}`,
+      url: `/${cep}/json/`,
     })
       .then(resp => {
-          console.log(resp.data.content)
-        });
-    };
+        setCepConsulta(resp.data);
+      });
+  }
 
-    const checkCEP = (e: any) => {
-      const cep = e.target.value;
-      fetch(`${BASE_URL}/${cep}/json/`)
-        .then(resp => resp.json())
-        .then(data => {
-          console.log(data);
-        })
-    }
-
-    
 
   return (
-    <>
-      <form action="">
-        <input placeholder='Digite o CEP' onChange={checkCEP} onBlur={getCEP} type="text" />
-        <button onClick={getCEP}>Buscar CEP</button>
-      </form>
-      <div>
-        {cepConsulta.map(cep => {
-          return(
-            <ul key={cep.cep}>
-              <li>CEP: {cep.cep}</li>
-              <li>Logradouro: {cep.logradouro}</li>
-              <li>Complemento: {cep.complemento}</li>
-              <li>Bairro: {cep.bairro}</li>
-              <li>Localidade: {cep.localidade}</li>
-              <li>UF: {cep.uf}</li>
-              <li>IBGE: {cep.ibge}</li>
-              <li>GIA: {cep.gia}</li>
-              <li>DDD: {cep.ddd}</li>
-              <li>SIAFI: {cep.siafi}</li>
-            </ul>
-          )
-        })}
+    <main>
+      <div className='container'>
+        <div className='form-container'>
+          <form onSubmit={e => e.preventDefault()} action="">
+            <input placeholder='Digite o CEP' onBlur={getCEP} type="text" />
+            <button onClick={checkCEP}>Buscar CEP</button>
+          </form>
+        </div>
+        <div className='cep-list'>
+          <ul key={cepConsulta?.cep}>
+            <li>CEP: {cepConsulta?.cep}</li>
+            <li>Logradouro: {cepConsulta?.logradouro}</li>
+            <li>Complemento: {cepConsulta?.complemento}</li>
+            <li>Bairro: {cepConsulta?.bairro}</li>
+            <li>Localidade: {cepConsulta?.localidade}</li>
+            <li>UF: {cepConsulta?.uf}</li>
+            <li>IBGE: {cepConsulta?.ibge}</li>
+            <li>GIA: {cepConsulta?.gia}</li>
+            <li>DDD: {cepConsulta?.ddd}</li>
+            <li>SIAFI: {cepConsulta?.siafi}</li>
+          </ul>
+        </div>
       </div>
-    </>  
+    </main>
   );
 };
 
