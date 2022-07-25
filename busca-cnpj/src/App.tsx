@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import CNPJWS from './components/CNPJ-WS';
+import CNPJSintegra from './components/CNPJ-Sintegra';
 
 function App() {
+  
+  const [topic, setTopic] = useState(0);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={() => setTopic(1)}>WS</button>
+      <button onClick={() => setTopic(2)}>Sintegra</button>
+      {topic === 1 && <CNPJWS />}
+      {topic === 2 && <CNPJSintegra />}
     </div>
   );
 }
