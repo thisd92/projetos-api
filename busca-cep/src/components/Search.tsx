@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from '../utils/request';
 import { CEP } from '../models/CEP';
 import Button from './Button';
+import Logo from './Logo'
 
 const Search = () => {
 
@@ -31,6 +32,7 @@ const Search = () => {
 
     return (
         <div className='container'>
+            <Logo />
             <div className='form-container'>
                 <form id='form-cep' onSubmit={e => e.preventDefault()} action="">
                     <input id='input-cep' placeholder='Digite o CEP' onBlur={getCEP} type="text" />

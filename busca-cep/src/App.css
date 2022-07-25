@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Roboto&display=swap');
 
-*{
+* {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 1.1rem;
   color: #ffffff;
 }
 
-body{
+body {
   font-family: 'Roboto', sans-serif;
   background-color: #06374b;
 }
 
-li{
+li {
   list-style: none;
   padding: 3px;
 }
 
-span{
+span {
   font-weight: 600;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,27 +31,27 @@ span{
   height: 100vh;
 }
 
-.form-container{
-  padding: 20px;
+.form-container {
+  margin-bottom: 20px;
 }
 
-#form-cep{
+#form-cep {
   display: flex;
   flex-direction: column;
 }
 
-#input-cep{
+#input-cep {
   margin-bottom: 5px;
   padding: 3px;
   color: #000000;
 }
 
-.cep-list{
+.cep-list {
   width: 400px;
   padding: 5px;
 }
 
-.btnCheck{
+.btnCheck {
   padding: 3px;
   background-color: #3bb3e2;
   border-radius: 5px;
@@ -61,12 +61,20 @@ span{
   font-weight: 500;
 }
 
-.btnCheck:hover{
+.image {
+  width: 300px;
+}
+
+.btnCheck:hover {
   background-color: #26802d;
 }
 
-@media (max-width: 700px){
-  .cep-list{
-    width: auto;
+@media (max-width: 700px) {
+  * {
+    font-size: 0.8rem;
+  }
+
+  .cep-list {
+    width: 250px;
   }
 }
