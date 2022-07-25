@@ -64,3 +64,9 @@ span{
 .btnCheck:hover{
   background-color: #26802d;
 }
+
+@media (max-width: 700px){
+  .cep-list{
+    width: auto;
+  }
+}
