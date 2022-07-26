@@ -18,7 +18,6 @@ function SearchCNPJ() {
     }
     function getCNPJ(e: any) {
         setCNPJ(e.target.value);
-        console.log(cnpj);
     }
 
     return (
@@ -37,7 +36,7 @@ function SearchCNPJ() {
                     <li><span>Natureza Jurídica:</span> {cnpjWS?.natureza_juridica.id} - {cnpjWS?.natureza_juridica.descricao}</li>
                     <li><span>Data Abertura:</span> {cnpjWS?.estabelecimento.data_inicio_atividade.replace(/(\d{4})(-)(\d{2})(-)(\d{2})/g, "$5/$3/$1")}</li>
                     <li><span>Situação Cadastral:</span> {cnpjWS?.estabelecimento.situacao_cadastral}</li>
-                    <li><span>Telefone:</span> ({cnpjWS?.estabelecimento.ddd1}) {cnpjWS?.estabelecimento.telefone1.replace(/^(\d{4})(\d{4})/, "$1-$2")}</li>
+                    <li><span>Telefone:</span> ({cnpjWS?.estabelecimento.ddd1}) {cnpjWS?.estabelecimento.telefone1}</li>
                     <li><span>E-mail:</span> {cnpjWS?.estabelecimento.email}</li>
                     <li><span>Logradouro:</span> {cnpjWS?.estabelecimento.tipo_logradouro} {cnpjWS?.estabelecimento.logradouro}</li>
                     <li><span>Numero:</span> {cnpjWS?.estabelecimento.numero}</li>
