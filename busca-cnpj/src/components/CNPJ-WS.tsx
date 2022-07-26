@@ -55,6 +55,13 @@ function SearchCNPJ() {
                         )
                     })}
                 </ul>
+                <ul>
+                    {cnpjWS?.socios.map(s => {
+                        return (
+                            <li><span>Sócio:</span> {s.nome} - {s.tipo}</li>
+                        )
+                    })}
+                </ul>
             </div>
         </div>
 
