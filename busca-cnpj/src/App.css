@@ -81,11 +81,21 @@ footer{
     font-size: 1rem;
   }
 
+  #form-cnpj{
+    margin-top: 15px;
+  }
+
   .cnpj-list{
-    width: 250px;
+    width: 300px;
+  }
+
+  .logo{
+    width: auto;
   }
 
   .footer{
-    width: auto;
+    width: 100%;
+    height: 60px;
+    position: inherit;
   }
 }
