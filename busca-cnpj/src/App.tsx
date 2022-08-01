@@ -10,12 +10,12 @@ function App() {
 
   return (
     <>
-      <div>
+      <main className='new'>
         <button onClick={() => setTopic(1)}>WS</button>
         <button onClick={() => setTopic(2)}>Sintegra</button>
         {topic === 1 && <CNPJWS />}
         {topic === 2 && <CNPJSintegra />}
-      </div>
+      </main>
       <Footer />
     </>
   );
